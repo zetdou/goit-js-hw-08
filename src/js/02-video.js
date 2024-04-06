@@ -9,6 +9,11 @@ if (currentTime) {
     player.setCurrentTime(Number.parseFloat(currentTime));
 };
 
-player.on("timeupdate", (data) => {
+const delayedUpdate = throttle((data) => {
     localStorage.setItem("videoplayer-current-time", data.seconds);
+}, 1000);
+
+player.on("timeupdate", (data) => {
+    delayedUpdate(data);
 });
+
