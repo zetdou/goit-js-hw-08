@@ -18,6 +18,10 @@ galleryItems.forEach(item => {
     photoGallery.insertAdjacentHTML('beforeend', galleryHTML);
 });
 
-const lightbox = new simpleLightbox('.gallery a');
+const lightbox = new simpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionPosition: 'bottom',
+    captionDelay: 250
+});
 
 
